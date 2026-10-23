@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Try it: why 5G and 6G need more towers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Try it: why 5G and 6G need more towers</h1>
+    <p class="mute">Two small experiments. No setup and no technical background needed.</p>
+
+    <h2>Experiment 1: how far does a signal reach?</h2>
+    <p>Pick a type of radio signal, then slide your phone away from the tower. Watch the bars.</p>
+    <div class="card">
+      <div class="row" id="bands"></div>
+      <label for="d">Distance from the tower: <span id="dv"></span></label>
+      <input id="d" type="range" min="50" max="2000" step="50" value="500">
+      <label>Where is the phone?</label>
+      <div class="row" id="places"></div>
+    </div>
+
+    <div class="card out">
+      <div class="phone" id="bars" aria-hidden="true"></div>
+      <div>
+        <div class="big" id="verdict"></div>
+        <p class="mute" id="why" style="margin:6px 0 0"></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <p><b>How far each signal reaches</b> (until it drops to one bar)</p>
+      <div id="reaches"></div>
+      <p style="margin-top:14px"><b>Towers needed to cover a town of 100 km²:</b> <span class="big" id="towers"></span></p>
+      <p class="mute" id="towerNote"></p>
+    </div>
+
+    <h2>Experiment 2: follow one message</h2>
+    <p>You tap “send” on your phone. Press Next to see where it goes.</p>
+    <div class="card">
+      <div class="steps" id="steps"></div>
+      <p class="big" id="st"></p>
+      <p id="sd"></p>
+      <div class="nav">
+        <button id="back">Back</button>
+        <button id="next">Next</button>
+      </div>
+    </div>
+
+    <h2>What this shows, and what it doesn’t</h2>
+    <div class="two">
+      <div class="card" style="margin:0">
+        <b>It shows</b>
+        <p>Higher-frequency signals fade faster with distance, so networks that use them need many more, smaller towers. Walls make this worse.</p>
+      </div>
+      <div class="card" style="margin:0">
+        <b>It does not show</b>
+        <p>Real coverage or speed. Real signals also depend on trees, rain, hills and buildings. The wall losses and the “one bar” limit here are simple assumptions for teaching.</p>
+      </div>
+    </div>
+    <p class="src" style="margin-top:18px">Method: the free-space path-loss formula, loss (dB) = 20·log10(distance in km) + 20·log10(frequency in MHz) + 32.44, with an assumed link budget of 120 dB. Frequency bands follow ITU-R Recommendation M.2160 (2023) and Dahlman et al. (2020). Full references are in the slide deck.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

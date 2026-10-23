@@ -1,0 +1,263 @@
+:root {
+  --bg: #eaf3f5;
+  --card: #ffffff;
+  --ink: #12303f;
+  --mute: #4d6573;
+  --line: #cfdfe5;
+  --acc: #0b7f7c;
+  --acc2: #c2410c;
+  --bar: #0b7f7c;
+  --off: #cfdfe5;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1d27;
+    --card: #142a37;
+    --ink: #e6f1f4;
+    --mute: #9db5c1;
+    --line: #27465a;
+    --acc: #4fd1c5;
+    --acc2: #fb923c;
+    --bar: #4fd1c5;
+    --off: #27465a;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0c1d27;
+  --card: #142a37;
+  --ink: #e6f1f4;
+  --mute: #9db5c1;
+  --line: #27465a;
+  --acc: #4fd1c5;
+  --acc2: #fb923c;
+  --bar: #4fd1c5;
+  --off: #27465a;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 18px/1.5 "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+
+h1 {
+  font: 700 34px/1.15 Georgia, "Times New Roman", serif;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font: 700 24px/1.2 Georgia, serif;
+  margin: 36px 0 6px;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+.mute {
+  color: var(--mute);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 14px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+button.opt {
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-align: left;
+  flex: 1 1 180px;
+}
+
+button.opt small {
+  display: block;
+  color: var(--mute);
+  font-size: 14px;
+}
+
+button.opt[aria-pressed="true"] {
+  border-color: var(--acc);
+  box-shadow: 0 0 0 2px var(--acc) inset;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--acc2);
+  outline-offset: 2px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin: 16px 0 6px;
+}
+
+input[type=range] {
+  width: 100%;
+  accent-color: var(--acc);
+}
+
+.phone {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 64px;
+}
+
+.phone i {
+  width: 16px;
+  background: var(--off);
+  border-radius: 3px;
+  display: block;
+}
+
+.phone i.on {
+  background: var(--bar);
+}
+
+.big {
+  font: 700 28px/1.2 Georgia, serif;
+}
+
+.out {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.reach {
+  display: grid;
+  grid-template-columns: 150px 1fr 90px;
+  gap: 10px;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.track {
+  height: 16px;
+  background: var(--off);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--acc);
+  border-radius: 8px;
+  transition: width .3s;
+}
+
+.reach.sel .fill {
+  background: var(--acc2);
+}
+
+.reach.sel b {
+  color: var(--acc2);
+}
+
+.steps {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 6px 0 14px;
+}
+
+.node {
+  flex: 1 1 110px;
+  text-align: center;
+  padding: 10px 6px;
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--card);
+}
+
+.node.on {
+  border-color: var(--acc);
+  background: var(--acc);
+  color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .node.on {
+    color: #0c1d27;
+  }
+}
+
+.nav button {
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 18px;
+  background: var(--acc);
+  color: #fff;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .nav button {
+    color: #0c1d27;
+  }
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 640px) {
+  .two {
+    grid-template-columns: 1fr;
+  }
+  .reach {
+    grid-template-columns: 110px 1fr 70px;
+  }
+  .out {
+    grid-template-columns: 1fr;
+  }
+}
+
+.src {
+  font-size: 14px;
+  color: var(--mute);
+}
